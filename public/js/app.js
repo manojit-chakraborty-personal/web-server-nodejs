@@ -19,12 +19,14 @@ weatherForm.addEventListener("submit", (e) => {
       const descriptionEl = document.getElementById("description");
       const temperatureEl = document.getElementById("temperature");
       const feelsLikeEl = document.getElementById("feelslike");
+      const humidityEl = document.getElementById("humidity");
 
       if (data.error != undefined) {
         locationEl.textContent = "Error";
         descriptionEl.textContent = data.error;
         temperatureEl.textContent = "";
         feelsLikeEl.textContent = "";
+        humidityEl.textContent = "";
         return;
       }
 
@@ -32,6 +34,7 @@ weatherForm.addEventListener("submit", (e) => {
       descriptionEl.textContent = data.forecast.weather_description;
       temperatureEl.textContent = data.forecast.temperature;
       feelsLikeEl.textContent = data.forecast.feelsLike;
+      humidityEl.textContent = data.forecast.humidity + '%';
       resultBox.style.display = "block";
     });
   });
